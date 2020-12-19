@@ -22,7 +22,7 @@ std::ostream& operator<<(std::ostream &os, const Lmatrix<T>& obj)
     return os ;
 }
 
-
+// 如果某一个变量消去，那么不需要再维护这一列的value了，因为都是0-0 或者1-0 浪费计算资源
 // note: the matrix must be n*n
 // https://www.mathsisfun.com/algebra/matrix-inverse-row-operations-gauss-jordan.html
 // he just find some Redundant calculation. So he decides to delete them.
@@ -129,7 +129,7 @@ void gaussj(MatDoub_IO &a)
 
 int testMain()
 {
-    Lmatrix<Doub> a(2,2)  ;
+    Lmatrix<Doub> a = Lmatrix<Doub>(2,3)  ;
     a[0][0] = 1.0 ;
     a[1][0] = 2.0 ;
     a[0][1] = 2.0 ;

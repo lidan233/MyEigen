@@ -331,7 +331,7 @@ Lmatrix<T> & Lmatrix<T>::operator=(const Lmatrix &rhs)
             data = size_matrix_m > 0 ? new T*[size_matrix_m] : nullptr ;
             nel = size_matrix_m*size_matrix_n ;
             if(data) data[0] = nel >0 ? new T[nel] : nullptr ;
-            for(int i = 0;  i < size_matrix_m; i++) data[i] = data[i-1] + size_matrix_n;
+            for(int i = 1;  i < size_matrix_m; i++) data[i] = data[i-1] + size_matrix_n;
         }
         for(int i = 0; i <size_matrix_m; i++) for(int j = 0 ; j< size_matrix_n; j++) data[i][j] = rhs[i][j] ;
 
